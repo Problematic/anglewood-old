@@ -1,0 +1,25 @@
+{
+  "name": "anglewood",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "yarn build --watch"
+  },
+  "bin": {
+    "anglewood": "./dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^2.19.0",
+    "number-to-words": "^1.2.4",
+    "seedrandom": "^3.0.1",
+    "variety": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^11.11.4",
+    "@types/seedrandom": "^2.4.27",
+    "typescript": "^3.3.4000"
+  }
+}
