@@ -8,12 +8,10 @@ export interface PhonemeMap {
 
 export interface Language {
   structure: string
-  restricts: {
-    syllables: RegExp[]
-    words: RegExp[]
-  }
+  restricts: RegExp[]
   phonemes: PhonemeMap
   orthography: Record<string, string>
   minSyllables: number
   maxSyllables: number
+  morphemes?: { [key: string]: string[] }
 }

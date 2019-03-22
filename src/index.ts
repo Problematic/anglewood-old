@@ -12,31 +12,35 @@ const rng = seedrandom(anglewood.seed || Date.now())
 
 const languages = {
   gwylln: {
-    structure: 'S(0.35)CVV?C',
-    restricts: {
-      syllables: [/(.)\1/, /[ʃfs][hpd]/],
-      words: [],
-    },
+    structure: 'CVV?C?F?',
+    restricts: [/(.)\1/i, /[ʃfs][hpdrR]/, /([lɬ]{2})/],
     phonemes: {
-      C: 'dglhprRmnɬx',
-      V: 'aeiouyw',
-      S: 'sʃ',
+      C: 'bcdfghlLmnprRsSx',
+      V: 'aAeioOuyw',
+      F: 'nD',
     },
     orthography: {
+      A: 'â',
+      O: 'ô',
       R: 'rh',
-      ɬ: 'll',
-      ʃ: 'si',
+      L: 'll',
+      S: 'si',
       f: 'ph',
-      ð: 'dd',
+      D: 'dd',
       x: 'ch',
       ʔ: '‘',
+      N: 'ng',
     },
-    minSyllables: 1,
+    minSyllables: 2,
     maxSyllables: 2,
   } as Language,
 }
 
 const lang = languages.gwylln
-const words = Array.from(Array(10).keys()).map(_ => makeWord(lang, rng))
+const places = Array.from(Array(10).keys()).map(_ =>
+  makeWord(lang, 'place', rng)
+)
 
-console.log(words.join(' / '))
+console.log(lang.morphemes)
+
+console.log(places.join(' / '))
